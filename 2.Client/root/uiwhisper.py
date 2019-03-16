@@ -50,19 +50,19 @@ if app.ENABLE_WHISPER_RENEWAL:
 		def SetTimer(self):
 			self.endTime = time.clock() + 0.4
 		def OnUpdate(self):
-			if len(self.chatLine.GetText()) > 0 and not whisper.IsSended(self.targetName):
-				whisper.Add(self.targetName)
-			elif not len(self.chatLine.GetText()) > 0 and whisper.IsSended(self.targetName):
-				whisper.Remove(self.targetName)
-				
-			if whisper.CheckName(self.targetName):
-				self.typing.Show()
-				lastTime = max(0, self.endTime - time.clock())
-				if 0 == lastTime:
-					if len(self.typing.GetText()) - len(b_name) < 3:
-						self.typing.SetText(self.typing.GetText() + ".")
-					else:
-						self.typing.SetText(b_name)
-					self.SetTimer()
-			else:
-				self.typing.Hide()
+			if 0 != self.targetName:
+				if len(self.chatLine.GetText()) > 0 and not whisper.IsSended(self.targetName):
+					whisper.Add(self.targetName)
+				elif not len(self.chatLine.GetText()) > 0 and whisper.IsSended(self.targetName):
+					whisper.Remove(self.targetName)
+				if whisper.CheckName(self.targetName):
+					self.typing.Show()
+					lastTime = max(0, self.endTime - time.clock())
+					if 0 == lastTime:
+						if len(self.typing.GetText()) - len(b_name) < 3:
+							self.typing.SetText(self.typing.GetText() + ".")
+						else:
+							self.typing.SetText(b_name)	
+						self.SetTimer()
+				else:
+					self.typing.Hide()
