@@ -30,7 +30,7 @@ if app.ENABLE_WHISPER_RENEWAL:
 		
 #Add		
 		if app.ENABLE_WHISPER_RENEWAL:
-			if whisper.IsSended(self.targetName):
+			if whisper.IsSended(self.targetName) and 0 != self.targetName:
 				whisper.Remove(self.targetName)
 				
 '''Find in def Close(self):'''
@@ -38,7 +38,7 @@ if app.ENABLE_WHISPER_RENEWAL:
 		
 #Add
 		if app.ENABLE_WHISPER_RENEWAL:
-			if whisper.IsSended(self.targetName):
+			if whisper.IsSended(self.targetName) and 0 != self.targetName:
 				whisper.Remove(self.targetName)
 				
 '''Find'''
