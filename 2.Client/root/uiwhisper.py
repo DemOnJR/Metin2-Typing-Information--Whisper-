@@ -30,7 +30,7 @@ if app.ENABLE_WHISPER_RENEWAL:
 		
 #Add		
 		if app.ENABLE_WHISPER_RENEWAL:
-			if whisper.IsSended(self.targetName) and 0 != self.targetName:
+			if whisper.IsSended(self.targetName) and self.targetName:
 				whisper.Remove(self.targetName)
 				
 '''Find in def Close(self):'''
@@ -38,7 +38,7 @@ if app.ENABLE_WHISPER_RENEWAL:
 		
 #Add
 		if app.ENABLE_WHISPER_RENEWAL:
-			if whisper.IsSended(self.targetName) and 0 != self.targetName:
+			if whisper.IsSended(self.targetName) and self.targetName:
 				whisper.Remove(self.targetName)
 				
 '''Find'''
@@ -50,7 +50,7 @@ if app.ENABLE_WHISPER_RENEWAL:
 		def SetTimer(self):
 			self.endTime = time.clock() + 0.4
 		def OnUpdate(self):
-			if 0 != self.targetName:
+			if self.targetName and self.chatLine:
 				if len(self.chatLine.GetText()) > 0 and not whisper.IsSended(self.targetName):
 					whisper.Add(self.targetName)
 				elif not len(self.chatLine.GetText()) > 0 and whisper.IsSended(self.targetName):
