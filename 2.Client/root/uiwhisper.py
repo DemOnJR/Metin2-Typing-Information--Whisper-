@@ -38,8 +38,9 @@ if app.ENABLE_WHISPER_RENEWAL:
 		
 #Add
 		if app.ENABLE_WHISPER_RENEWAL:
-			if whisper.IsSended(self.targetName) and self.targetName:
-				whisper.Remove(self.targetName)
+			if self.targetName != 0:
+				if whisper.IsSended(self.targetName) and self.targetName:
+					whisper.Remove(self.targetName)
 				
 '''Find'''
 	def OnScroll(self):
